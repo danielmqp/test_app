@@ -1,0 +1,33 @@
+<hr>
+<h1>Este es mi primer componente</h1>
+
+<button (click)="aumentarEdad()">Aumentar</button>
+<button (click)="disminuirEdad()">Disminuir</button>
+<h3 [style.background]="edad>=18 ? 'green':'red'" [style.color]="'white'">Tu edad es: {{edad}}</h3>
+<div *ngIf="edad>=18">Eres mayor de edad</div>
+<div *ngIf="edad<=17">Eres menor de edad</div>
+
+<h2>Escribe un nombre:</h2>
+<div>{{name_to_add}}</div>
+<input type="text" [ngModel]="name_to_add" /> <button class="add-name-btn"
+  (click)="addName()">Agregar</button>
+
+<h4>Nombres guardados:</h4>
+<div>{{names}}</div>
+
+<style>
+  .add-name-btn {
+    margin-left: 1em;
+    cursor: pointer;
+    border: none;
+    padding: 0.3em 1em;
+    background-color: #0078AA;
+    color: white;
+    border-radius: 3px;
+  }
+
+  .add-name-btn:hover {
+    background-color: #0a89c0;
+  }
+
+</style>
