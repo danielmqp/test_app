@@ -1,21 +1,33 @@
 <hr>
 <h1>Este es mi primer componente</h1>
 
-<button (click)="aumentarEdad()">Aumentar</button>
-<button (click)="disminuirEdad()">Disminuir</button>
-<h3 [style.background]="edad>=18 ? 'green':'red'" [style.color]="'white'">Tu edad es: {{edad}}</h3>
+
+<hr>
+<h3 [class]="edad>=18 ? 'bg-success':'bg-danger'" [style.color]="'white'" style="padding-left: .5em;">Tu edad es: {{edad}}</h3>
+<button (click)="aumentarEdad()" class="bg-success text-white add-btn">+ Aumentar</button>
+<button (click)="disminuirEdad()" class="bg-danger text-white remove-btn">- Disminuir</button>
 <div *ngIf="edad>=18">Eres mayor de edad</div>
 <div *ngIf="edad<=17">Eres menor de edad</div>
 
 <h2>Escribe un nombre:</h2>
-<div>{{name_to_add}}</div>
-<input type="text" [ngModel]="name_to_add" /> <button class="add-name-btn"
-  (click)="addName()">Agregar</button>
+<input type="text" [(ngModel)]="name_to_add" placeholder="Nombre"/> <button class="add-name-btn" (click)="addName()">Agregar</button>
 
 <h4>Nombres guardados:</h4>
-<div>{{names}}</div>
+<ul>
+  <li *ngFor="let name of names">{{name}}</li>
+</ul>
 
 <style>
+  .add-btn,
+  .remove-btn {
+    border: none !important;
+  }
+
+  .add-btn:hover,
+  .remove-btn:hover {
+    opacity: 0.9;
+  }
+
   .add-name-btn {
     margin-left: 1em;
     cursor: pointer;

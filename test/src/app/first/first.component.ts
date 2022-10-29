@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'first',
@@ -10,6 +10,7 @@ export class FirstComponent implements OnInit {
   edad: number;
   names: Array<string>;
   name_to_add: string;
+
 
   constructor() {
     this.edad = 25;
@@ -24,9 +25,11 @@ export class FirstComponent implements OnInit {
       ? console.log('Eres mayor de edad')
       : console.log('eres menor de edad');
 
+
     // if (this.edad > 18) console.log('Eres mayor de edad');
     // else console.log('Eres menor de edad :(');
   }
+
 
   aumentarEdad() {
     this.edad++;
@@ -35,6 +38,10 @@ export class FirstComponent implements OnInit {
     this.edad--;
   }
   addName() {
+    console.log(this.name_to_add);
+
     this.names.push(this.name_to_add);
+    this.name_to_add = '';
+    console.log(this.names);
   }
 }
