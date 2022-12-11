@@ -9,16 +9,16 @@
     <label for="link">Link:</label>
     <input name="link" #newlink />
   </div>
-  <button
-    (click)="addArticle(newtitle, newlink)"
-    class="ui positive right floated button"
-  >
+  <button (click)="addArticle(newtitle, newlink)" class="ui positive right floated button">
     Submit link
   </button>
 </form>
 <div class="ui grid posts">
-  <app-article
-    *ngFor="let foobar of sortedArticles()"
-    [article]="foobar"
-  ></app-article>
+  <app-article *ngFor="let foobar of sortedArticles()" [article]="foobar"></app-article>
+</div>
+
+<div class="card-container">
+  <app-card *ngFor="let personaje of personajes" [personaje]="personaje">
+
+  </app-card>
 </div>
